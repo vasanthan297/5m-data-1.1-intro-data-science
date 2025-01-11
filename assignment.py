@@ -1,3 +1,6 @@
+from collections import Counter
+
+
 # Question 1
 
 # Write a function that prints "Fizz" when the number is divisible by 3, "Buzz" when the number is divisible by 5
@@ -14,8 +17,17 @@ def fizz_buzz(number):
     'Buzz'
     >>> fizz_buzz(15)
     'FizzBuzz'
+    >>> fizz_buzz(7)
+    7
     """
-    return
+    if number % 3 == 0 and number % 5 == 0:
+        return "FizzBuzz"
+    elif number % 3 == 0:
+        return "Fizz"
+    elif number % 5 == 0:
+        return "Buzz"
+    else:
+        return number
 
 
 # Question 2
@@ -30,7 +42,11 @@ def sum_of_squares(numbers):
     >>> sum_of_squares([2, 4, 6])
     56
     """
-    return
+    sum= 0
+    for i in numbers:
+        sum= sum + i*i
+        
+    return sum
 
 
 # Question 3
@@ -45,14 +61,17 @@ def count_vowels(string):
     >>> count_vowels("aeiou")
     5
     """
-    return
+    stringLower=string.lower()
+    count = 0
+    for c in stringLower:
+        if c == 'a' or c == 'e'or c=='i' or c=='o' or c == 'u':
+            count =count + 1
+    return count 
 
 
 # Question 4
 
 # Write a function that counts the number of repeated characters in a string.
-
-
 def count_repeats(string):
     """Returns the number of repeated characters in a string.
     >>> count_repeats("hello")
@@ -60,7 +79,15 @@ def count_repeats(string):
     >>> count_repeats("aeiou")
     0
     """
-    return
+    char_counts = Counter(string)
+    sum = 0    
+    for char, count in char_counts.items() :
+        if count > 1:
+            sum = sum + count
+
+    return sum
+
+
 
 
 if __name__ == "__main__":
